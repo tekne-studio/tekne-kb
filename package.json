@@ -1,0 +1,79 @@
+{
+	"name": "@tekne/kb",
+	"version": "0.6.1",
+	"description": "Project knowledge for humans and coding agents: decisions, open questions and docs as markdown in git, checked against the code.",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/tekne-studio/tekne-kb.git"
+	},
+	"keywords": [
+		"docs",
+		"decisions",
+		"adr",
+		"agents",
+		"vitepress"
+	],
+	"type": "module",
+	"bin": {
+		"kb": "src/cli.ts"
+	},
+	"exports": {
+		"./config": {
+			"types": "./src/config.ts",
+			"bun": "./src/config.ts",
+			"default": "./dist/config.js"
+		},
+		"./vitepress": {
+			"types": "./src/vitepress.ts",
+			"bun": "./src/vitepress.ts",
+			"default": "./dist/vitepress.js"
+		},
+		"./vitepress/theme": "./vitepress/theme.ts",
+		"./package.json": "./package.json"
+	},
+	"files": [
+		"src",
+		"!src/*.test.ts",
+		"dist",
+		"guides",
+		"templates",
+		"vitepress",
+		"README.md",
+		"CHANGELOG.md"
+	],
+	"publishConfig": {
+		"registry": "https://npm.tekne.studio"
+	},
+	"dependencies": {
+		"js-yaml": "^3.14.1"
+	},
+	"peerDependencies": {
+		"vitepress": ">=1.6",
+		"vue": ">=3.5"
+	},
+	"peerDependenciesMeta": {
+		"vitepress": {
+			"optional": true
+		},
+		"vue": {
+			"optional": true
+		}
+	},
+	"scripts": {
+		"wf": "wf",
+		"kb": "bun src/cli.ts",
+		"build": "rm -rf dist && bun build src/config.ts src/vitepress.ts --outdir dist --target node --format esm --splitting --packages external",
+		"prepublishOnly": "bun run build",
+		"test": "bun test",
+		"check": "tsc --noEmit",
+		"release": "bun scripts/release.ts"
+	},
+	"devDependencies": {
+		"@tekne/wf": "^0.5.0",
+		"@types/bun": "^1.4.3",
+		"typescript": "^7.0.2",
+		"vitepress": "^1.6.4",
+		"vue": "^3.5"
+	}
+}
