@@ -36,7 +36,7 @@ export function loadQuestions(ctx: Ctx): Question[] {
 export function read(file: string): Question {
 	const { data, body } = parse(readFileSync(file, 'utf8'));
 	return {
-		id: file.split('/').pop()!.replace(/\.md$/, ''),
+		id: file.split(/[\\/]/).pop()!.replace(/\.md$/, ''),
 		file,
 		title: body.match(/^#\s+(.+)$/m)?.[1].trim() ?? '',
 		group: str(data.group),
