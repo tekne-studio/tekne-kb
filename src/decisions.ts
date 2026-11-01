@@ -42,7 +42,7 @@ export function loadDecisions(ctx: Ctx): Decision[] {
 
 export function read(file: string): Decision {
 	const { data, body } = parse(readFileSync(file, 'utf8'));
-	const id = file.split('/').pop()!.replace(/\.md$/, '');
+	const id = file.split(/[\\/]/).pop()!.replace(/\.md$/, '');
 	return {
 		id,
 		file,

@@ -1,6 +1,6 @@
 import { spawnSync } from 'node:child_process';
 import { existsSync, lstatSync, readdirSync, readFileSync, readlinkSync, writeFileSync } from 'node:fs';
-import { dirname, join } from 'node:path';
+import { dirname, join, posix } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { type Config, CONFIG_FILE, type Ctx, type Problem } from './config';
 import { version } from '../package.json';
@@ -44,9 +44,10 @@ function ruleValues(config?: Config): Record<string, string> {
 	const manual = config?.manual;
 	const roadmap = config?.roadmap ?? { file: 'roadmap.md', now: 'Now', later: 'Later', doneWhen: 'Done when' };
 	return {
-		page: manual ? `its page in \`${join(config.docs.dir, manual.dir).replace(/\/$/, '')}/\`` : 'its page',
+		// posix.join: the block is text every platform reads, never a native path (Windows joins with a backslash)
+		page: manual ? `its page in \`${posix.join(config.docs.dir, manual.dir).replace(/\/$/, '')}/\`` : 'its page',
 		run: manual?.run ? `\`${manual.run}\`` : 'the script',
-		roadmap: `\`${join(config?.docs.dir ?? 'docs', roadmap.file)}\``,
+		roadmap: `\`${posix.join(config?.docs.dir ?? 'docs', roadmap.file)}\``,
 		now: `\`## ${roadmap.now}\``,
 		later: `\`## ${roadmap.later}\``,
 		doneWhen: `\`**${roadmap.doneWhen}:**\``,

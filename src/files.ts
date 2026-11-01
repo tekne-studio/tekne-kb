@@ -12,7 +12,8 @@ import type { Ctx } from './config';
 export function docFiles(ctx: Ctx): string[] {
 	const docs = ctx.path(ctx.config.docs.dir);
 	if (!existsSync(docs)) return [];
-	return (readdirSync(docs, { recursive: true }) as string[]).filter((rel) => rel.endsWith('.md') && !rel.includes('node_modules/') && !rel.startsWith('.vitepress/'));
+	// Windows readdir returns backslashes; every id, link and folder check downstream expects '/'.
+	return (readdirSync(docs, { recursive: true }) as string[]).map((rel) => rel.replace(/\\/g, '/')).filter((rel) => rel.endsWith('.md') && !rel.includes('node_modules/') && !rel.startsWith('.vitepress/'));
 }
 
 // Source files named by `config.code.glob`. Braces are expanded here because Bun's

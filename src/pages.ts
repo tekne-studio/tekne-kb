@@ -25,7 +25,7 @@ export type Page = {
 export function pageFiles(ctx: Ctx): string[] {
 	const docs = ctx.path(ctx.config.docs.dir);
 	const skip = (ctx.config.docs.skip ?? []).map((s) => `${s.replace(/\/$/, '')}/`);
-	const items = [ctx.config.decisions.dir, ctx.config.questions.dir].map((d) => `${relative(docs, ctx.path(d))}/`);
+	const items = [ctx.config.decisions.dir, ctx.config.questions.dir].map((d) => `${relative(docs, ctx.path(d)).replace(/\\/g, '/')}/`);
 	return docFiles(ctx)
 		.filter((rel) => !skip.some((s) => rel.startsWith(s)))
 		.filter((rel) => !items.some((d) => rel.startsWith(d) && rel !== `${d}index.md`))
