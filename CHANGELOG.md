@@ -4,6 +4,18 @@ Versions follow semver; the commit type is the bump (`feat` minor, `fix`
 patch, a breaking change minor while below 1.0). Entries are distilled from
 the commits. Before 0.6.0, the tags and `git log` hold the changes.
 
+## 0.6.2
+
+On Windows, the paths kb writes are posix, as on every other platform.
+
+### Upgrading
+
+- `bun kb gen` after upgrading: the block names the kb version, and on Windows its paths change from `\` to `/`.
+
+### Fixed
+
+- On Windows, the docs listing, the decision and question ids and the roadmap and manual paths in the `AGENTS.md` block came out with backslashes (`docs\roadmap.md`), so a `kb gen` on another platform rewrote them. They are posix now; on macOS and Linux nothing changes.
+
 ## 0.6.1
 
 The first version the release Action publishes: `bun run release` cuts a version from the commits, and a `v*` tag publishes from a clean checkout. Coming from 0.5.0, read 0.6.0's Upgrading below too.
