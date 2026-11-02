@@ -39,6 +39,7 @@ The checkpoint ([the roadmap guide](../guides/roadmap.md#the-checkpoint)) on one
 ### With wf
 
 - `kb roadmap --json` feeds the orchestrator's choice of the next task, and `wf spawn` names the item a task meets.
+- The shared rules say "in the same delivery" where they say "in the same commit": what reaches the integration branch reaches it consistent (code, comments and docs together), and the commits on the way are the project's business; one commit is still the simplest way for a small change. Core: comments and docs follow the change in the same delivery. Manual: a new screen goes on the debt list and gets its page before the manual publishes it. Roadmap: an item leaves the page when its done line is met, in the same delivery. Why: "same commit" contradicts "commit as you go", so an agent obeys both only with one commit at the end; on the platform, features took 400 to 520 turns with the first commit at the last one (18 agent sessions, measured 2026-11-02), and the project section overrides the three lines today. Release it when that override proves itself over a round.
 
 ### Site
 
