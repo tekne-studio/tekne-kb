@@ -4,6 +4,18 @@ Versions follow semver; the commit type is the bump (`feat` minor, `fix`
 patch, a breaking change minor while below 1.0). Entries are distilled from
 the commits. Before 0.6.0, the tags and `git log` hold the changes.
 
+## 0.6.3
+
+The shared rules ask for consistency per delivery, not per commit: what reaches the integration branch carries its comments, docs, manual page and roadmap line, and the commits on the way are the project's.
+
+### Upgrading
+
+- `bun kb gen` after upgrading: the block changed, and `bun kb check` fails until it is rewritten.
+
+### Fixed
+
+- Core, manual and roadmap rules say "in the same delivery" where they said "in the same commit"; the commits on the way are checkpoints, and one commit is still the simplest way for a small change. A new screen goes on the debt list and gets its page before the manual publishes it. "Same commit" contradicted "commit as you go", and an agent obeys both only with one commit at the end: on one platform, features took 400 to 520 turns with the first commit at the last one, over 18 agent sessions.
+
 ## 0.6.2
 
 On Windows, the paths kb writes are posix, as on every other platform.

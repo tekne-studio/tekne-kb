@@ -1,6 +1,6 @@
 {
 	"name": "@tekne/kb",
-	"version": "0.6.2",
+	"version": "0.6.3",
 	"description": "Project knowledge for humans and coding agents: decisions, open questions and docs as markdown in git, checked against the code.",
 	"license": "MIT",
 	"repository": {
