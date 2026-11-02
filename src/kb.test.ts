@@ -671,12 +671,12 @@ describe('core rules', () => {
 
 describe('manual rules', () => {
 	test('cite the project\'s manual folder and screenshot command; without them, the general words', () => {
-		expect(globalBlock(['manual'])).toContain('changes its page and its script in the same commit');
+		expect(globalBlock(['manual'])).toContain('changes its page and its script in the same delivery');
 		expect(globalBlock(['manual'])).toContain('- Screenshots come from the script, with assertions');
 		const config = defineConfig({ docs: { dir: 'site' }, manual: { dir: 'help', run: 'bun run shots' } });
 		expect(globalBlock(['manual'], config)).toBe(`### Manual
 
-- A change to a screen the manual covers changes its page in \`site/help/\` and its script in the same commit; a new screen gets its page before the merge, or goes on the debt list.
+- A change to a screen the manual covers changes its page in \`site/help/\` and its script in the same delivery; a new screen goes on the debt list and gets its page before the manual publishes it.
 - Screenshots come from \`bun run shots\`, with assertions and synthetic data; never by hand.
 - Starting the manual or changing how it is published: ask the person the questions of \`kb manual setup\`, then run it. How the pieces fit: \`kb guide manual\`.`);
 		expect(globalBlock(['core', 'manual'], config)).not.toContain('{{');

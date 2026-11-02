@@ -21,7 +21,7 @@ The project section below wins where the two differ.
 ### While working: docs, comments and the session
 
 - Say what the thing is and what to do; a prohibition comes with the way: "never X; use Y". Present only: the past lives in git (what) and in decisions (why).
-- Comments say why; the code says what. Changed or removed code: rewrite or delete every comment and doc about it in the same commit.
+- Comments say why; the code says what. Changed or removed code: rewrite or delete every comment and doc about it in the same delivery, what reaches the integration branch; the commits on the way are checkpoints, and one commit is the simplest way for a small change.
 - Concise: direct sentences, tables and lists when they fit. One file, one topic.
 - Every turn rereads the whole conversation: `kb why` before a whole doc, a line range before a whole file, a subagent for a wide search when the harness has one.
 - At the end of a task, or once the session has grown long, write what the next session needs in its home, then start fresh, or ask the person to.

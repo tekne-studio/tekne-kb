@@ -33,13 +33,13 @@ Card and boleto checkout. Details: [payment](./payment.md).
 - **Enters** as a wish under Later, or as an item under Now in its place in the order. A task always goes here, however small; a question waits on someone's answer.
 - **Moves** from Later to Now when it comes next: the wish becomes a `###` item with its done line, and the order says when.
 - **Blocked:** what waits on someone is an open question that names the item, `kb question add "<question>" --unblocks roadmap.md#<item>`. kb shows it under the item, on the site and in `kb why roadmap.md#<item>`; `kb check` fails if the item leaves while the question still points at it. The page keeps no blocked section: it repeated the questions.
-- **Done:** the item leaves the page in the commit that meets its done line, and what it built lives in the topic doc. Nobody keeps a done table: `kb roadmap done --since <day>` lists, from git, the items that left Now, each with its commit and the doc it linked to.
-- **Dropped:** a decision says why (`kb decision new`), and the item leaves in the same commit.
+- **Done:** the item leaves the page in the delivery that meets its done line, and what it built lives in the topic doc. Nobody keeps a done table: `kb roadmap done --since <day>` lists, from git, the items that left Now, each with its commit and the doc it linked to.
+- **Dropped:** a decision says why (`kb decision new`), and the item leaves in the same delivery.
 - **Renamed** in place: `kb roadmap done` keeps it on the page. Moved into Later as a heading, it stays too; as a one-line wish, it shows as left, and the commit says so.
 
 ## Briefs
 
-An item too heavy for its heading (a block of ordered steps, a campaign with its own reasoning) links to a doc of its own, a brief, and keeps on the page its name, a line and the done line. `roadmap.briefs` names where briefs live: a folder (`briefs/`) or one file (`brief.md`). When the item leaves, the brief dissolves in the same commit: its shape into the topic docs, its why into decisions. `kb check` warns on a brief no item under Now links to.
+An item too heavy for its heading (a block of ordered steps, a campaign with its own reasoning) links to a doc of its own, a brief, and keeps on the page its name, a line and the done line. `roadmap.briefs` names where briefs live: a folder (`briefs/`) or one file (`brief.md`). When the item leaves, the brief dissolves in the same delivery: its shape into the topic docs, its why into decisions. `kb check` warns on a brief no item under Now links to.
 
 ## The checkpoint
 
